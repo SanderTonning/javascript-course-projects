@@ -1,5 +1,5 @@
 # javascript-course-projects
-Learning javascript
+Learning javascript with The modern JavaScript Bootcamp by Andrew Mead.
 
 
 Covered:
