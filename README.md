@@ -13,6 +13,7 @@ Datastorage, Libraries
 
 
 Coming up:
+
 JS advanced
 Advanced Objects and Functions
 Asynchronous JS
