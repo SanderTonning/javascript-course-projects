@@ -16,9 +16,7 @@ const saveTodos = (todos) => {
 
 // Remove a todo from the list
 const removeTodo = (id) => {
-    const todoIndex = todos.findIndex(function (todo) {
-        return todo.id === id
-    })
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
     if (todoIndex > -1) {
         todos.splice(todoIndex, 1)
     }
@@ -26,9 +24,7 @@ const removeTodo = (id) => {
 
 // Toggle the completed value for a given todo 
 const toggleTodo = (id) => {
-    const todo = todos.find(function (todo) {
-        return todo.id === id
-    })
+    const todo = todos.find((todo) => todo.id === id)
 
     if(todo !== undefined) {
         todo.completed = !todo.completed
@@ -37,12 +33,9 @@ const toggleTodo = (id) => {
 
 // Render application todos based on filters
     const renderTodos = (todos, filters) => {
-        let filteredTodos = todos.filter(function (todo) {
+        let filteredTodos = todos.filter((todo) => todo.text.toLowerCase().includes(filters.searchText.toLowerCase()))
 
-            return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-        })
-
-        filteredTodos = filteredTodos.filter(function (todo) {
+        filteredTodos = filteredTodos.filter((todo) => {
             if (filters.hideCompleted) {
                 return !todo.completed
             } else {
@@ -50,14 +43,12 @@ const toggleTodo = (id) => {
             }
         })
 
-        const incompleteTodos = filteredTodos.filter(function (todo) {
-            return !todo.completed
-        })
+        const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
         document.querySelector('#todos').innerHTML = ''
         document.querySelector('#todos').appendChild(generateSummaryDOM(incompleteTodos))
       
-        filteredTodos.forEach(function (todo) {
+        filteredTodos.forEach((todo) => {
             document.querySelector('#todos').appendChild(generateTodoDOM(todo))
         }) 
     }
@@ -73,7 +64,7 @@ const generateTodoDOM = (todo) => {
     checkbox.setAttribute('type', 'checkbox')
     checkbox.checked = todo.completed
     todoEl.appendChild(checkbox)
-    checkbox.addEventListener('change', function (e) {
+    checkbox.addEventListener('change', (e) => {
         toggleTodo(todo.id) 
         saveTodos(todos)
         renderTodos(todos, filters)
@@ -86,7 +77,7 @@ const generateTodoDOM = (todo) => {
     // Setup the remove button
     removeButton.textContent = 'x'
     todoEl.appendChild(removeButton)
-    removeButton.addEventListener('click', function (e) {
+    removeButton.addEventListener('click', (e) => {
         removeTodo(todo.id)
         saveTodos(todos)
         renderTodos(todos, filters)
