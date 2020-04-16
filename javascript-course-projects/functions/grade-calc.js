@@ -4,33 +4,38 @@
 
 const gradeCalc = (score, maxScore) => {
 
-    const grade = score / maxScore;
-    const percent = grade * 100;
-    const gradeLetter = '';
+    if (typeof score !== 'number' || typeof maxScore !== 'number') {
+        throw Error ('Argument must be a numbers')
+    }
+
+    const percent = (score / maxScore) * 100
+    let gradeLetter = ''
 
     if (percent >= 90) {
-        gradeLetter = 'A';
+        gradeLetter = 'A'
          
     }else if (percent >= 80) {
-        gradeLetter = 'B';
+        gradeLetter = 'B'
     }else if (percent >= 70) {
-        gradeLetter = 'C';
+        gradeLetter = 'C'
     }else if (percent >= 60) {
-        gradeLetter = 'D';
+        gradeLetter = 'D'
     }else if (percent >= 50) {
         gradeLetter = 'E'
     }else  {
         gradeLetter = 'F'
     }
     return `You got a ${gradeLetter} (${percent}%)`
-};
+}
 
-//tests
-console.log(gradeCalc(90, 100));
-console.log(gradeCalc(89, 100));
-console.log(gradeCalc(79, 100));
-console.log(gradeCalc(69, 100));
-console.log(gradeCalc(59, 100));
-console.log(gradeCalc(5, 100));
+try {
+    const result = gradeCalc(10,20)
+    console.log(result)
+
+} catch (e) {
+    console.log(e.message)
+}
+
+
 
 
