@@ -1,4 +1,5 @@
 // Prototypal Inheritance
+// myPerson --> Person.prototype --> Object.prototype --> null
 
 class Person {
     constructor(firstName, lastName, age, likes = []) {
@@ -16,16 +17,46 @@ class Person {
         
         return bio
     }
-    setName(fullName) {
+    set fullName(fullName) {
         const names = fullName.split(' ')
         this.firstName = names[0]
         this.lastName = names[1]
     }
+    get fullname() {
+        return `${this.firstName} ${this.lastName}`
+    }
 }
 
-const me = new Person('Sander', 'Tonning', 38, ['cheeseburgers', 'mowing the air'])
-me.setName('Randy Lahey')
-console.log(me.getBio())
+class Employee extends Person {
+    constructor (firstName,lastName, age, position, likes) {
+        super(firstName, lastName, age, likes)
+        this.position = position
+    }
+    getBio() {
+        // Sander is a Business developer
+        return `${this.firstName} ${this.lastName} is a ${this.position}.`
+    }
+    getYearsLeft() {
+        return 65 - this.age
+    }
+}
 
-const person2 = new Person('Jim', 'Lahey', 63)
-console.log(person2.getBio())
+class Student extends Person {
+    constructor(firstName,lastName, age, grade, likes) {
+        super(firstName, lastName, age, likes)
+        this.grade = grade
+    }
+    getBio() {
+
+        const status = this.grade >= 70 ? 'passing' : 'failing'
+        return `${this.firstName} is ${status} the class.`
+
+    }
+    updateGrade(points) {
+        this.grade += points
+    }
+}
+
+const me = new Employee('Sander', 'Tonning', 28, 'Assistent trailpark supervisor', [])
+me.fullName = 'Randy Bobandy'
+console.log(me.getBio())
