@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
 <html>
-    <header></header>
+    <header>
+        <link href="styles/styles.css" rel="stylesheet">
+    </header>
     <body>
-        <h1>Hangman</h1>
-        <h4>Guess the word!</h4>
-        <p id="puzzle"></p>
-        <p id="guesses"></p>
-        <button id="reset">Reset</button>
-        <script src="requests.js"></script>
-        <script src="hangman.js"></script>
-        <script src="app.js"></script>
+        <div>
+            <p id="puzzle" ></p>
+            <p id="guesses" class="warning"></p>
+            <button id="reset" class="warning">Reset</button>
+        </div>
+        <script src="scripts/requests.js"></script>
+        <script src="scripts/hangman.js"></script>
+        <script src="scripts/app.js"></script>
     </body>
 </html>
-
