@@ -23,5 +23,6 @@ During the course i will be making a To-do web app. A Notes web app and also a H
 
 I have hosted two of the apps on Netlify: 
 
-Hangman: https://stoic-babbage-ddf106.netlify.app/
+Hangman: https://stoic-babbage-ddf106.netlify.app/ (use your keyboard to type the letters, you can also chance the amount of puzzle word by editen the following stringvalue. I defaulted it to one word: getPuzzle('1')
+
 To - do app: https://practical-benz-9de7ee.netlify.app/
