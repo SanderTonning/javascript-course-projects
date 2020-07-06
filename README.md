@@ -18,5 +18,7 @@ Coming up:
 Babel & Webpack
 
 Goals: Get comfortable with Javascript. 
+
 Check my work in progress webpage: https://jylstsoftware.netlify.app/ 
+
 The To-do app: https://jylstsoftware-todo.netlify.app/
